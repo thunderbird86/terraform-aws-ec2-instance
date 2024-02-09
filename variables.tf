@@ -403,3 +403,37 @@ variable "iam_role_tags" {
   type        = map(string)
   default     = {}
 }
+
+################################################################################
+#  Misc / SG, EIP, ENI Resources
+################################################################################
+
+variable "create_sg" {
+  description = "Determines whether create Security Group"
+  type        = bool
+  default     = false
+}
+
+variable "vpc_id" {
+  description = "VPC ID is required for creating Security Group"
+  type        = string
+  default     = ""
+}
+
+variable "create_eni" {
+  description = "Determines whether create ENI"
+  type        = bool
+  default     = false
+}
+
+variable "create_eip" {
+  description = "Determines whether create EIP"
+  type        = bool
+  default     = false
+}
+
+variable "sg_rules" {
+  description = "List of ingress rules to create by name"
+  type        = any
+  default     = {}
+}
