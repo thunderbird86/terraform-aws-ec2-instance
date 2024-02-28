@@ -437,3 +437,27 @@ variable "sg_rules" {
   type        = any
   default     = {}
 }
+
+variable "route53_recod_name" {
+  description = "DNS name for instance"
+  type        = string
+  default     = ""
+}
+
+variable "route53_recod_type" {
+  description = "DNS record type"
+  type        = string
+  default     = "A"
+}
+
+variable "route53_recod_zone_id" {
+  description = "Route53 Zone ID"
+  type        = string
+  default     = ""
+}
+
+variable "aws_route53_ttl" {
+  description = "DNS record TTL"
+  type        = string
+  default     = "300"
+}
