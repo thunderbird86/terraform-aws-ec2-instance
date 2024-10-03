@@ -1,5 +1,5 @@
 resource "aws_security_group" "this" {
-  name        = "Allow access"
+  name        = format("%s-%s", var.name, "sg")
   description = "Allow tls/web/ssh inbound traffic and all outbound traffic"
   vpc_id      = var.vpc_id
 
