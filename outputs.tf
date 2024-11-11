@@ -229,3 +229,29 @@ output "ephemeral_block_device" {
     null
   )
 }
+
+
+################################################################################
+# Security Group
+################################################################################
+
+output "security_group_arn" {
+  description = "ARN of security group"
+  value = try(
+    aws_security_group.this.arn
+  )
+}
+
+output "security_group_id" {
+  description = "ID of security group"
+  value = try(
+    aws_security_group.this.id
+  )
+}
+
+output "security_group_name" {
+  description = "ID of security group"
+  value = try(
+    aws_security_group.this.name
+  )
+}
