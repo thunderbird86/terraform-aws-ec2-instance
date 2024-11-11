@@ -1,4 +1,6 @@
 resource "aws_security_group" "this" {
+  count = var.create_sg ? 1 : 0
+
   name        = format("%s-%s", var.name, "sg")
   description = "Allow tls/web/ssh inbound traffic and all outbound traffic"
   vpc_id      = var.vpc_id
@@ -10,7 +12,7 @@ resource "aws_security_group_rule" "this" {
   for_each = { for k, v in var.sg_rules : k => v if var.create_sg }
 
   # Required
-  security_group_id = aws_security_group.this.id
+  security_group_id = aws_security_group.this[0].id
   protocol          = each.value.protocol
   from_port         = each.value.from_port
   to_port           = each.value.to_port
