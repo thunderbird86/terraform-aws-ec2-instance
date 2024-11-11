@@ -1,7 +1,7 @@
 resource "aws_network_interface" "this" {
   count           = var.create_eni ? 1 : 0
   subnet_id       = var.subnet_id
-  security_groups = [aws_security_group.this.id]
+  security_groups = [aws_security_group.this[0].id]
 
   attachment {
     instance     = aws_instance.this[0].id

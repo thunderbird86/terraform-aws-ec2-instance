@@ -238,20 +238,20 @@ output "ephemeral_block_device" {
 output "security_group_arn" {
   description = "ARN of security group"
   value = try(
-    aws_security_group.this.arn
+    aws_security_group.this[0].arn
   )
 }
 
 output "security_group_id" {
   description = "ID of security group"
   value = try(
-    aws_security_group.this.id
+    aws_security_group.this[0].id
   )
 }
 
 output "security_group_name" {
   description = "ID of security group"
   value = try(
-    aws_security_group.this.name
+    aws_security_group.this[0].name
   )
 }
