@@ -31,7 +31,7 @@ resource "aws_instance" "this" {
 
   availability_zone      = var.availability_zone
   subnet_id              = var.subnet_id
-  vpc_security_group_ids = [aws_security_group.this[0].id]
+  vpc_security_group_ids = var.create_sg ? [aws_security_group.this[0].id] : [var.vpc_security_group_ids]
 
   key_name             = var.key_name
   monitoring           = var.monitoring
